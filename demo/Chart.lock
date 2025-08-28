@@ -1,0 +1,9 @@
+dependencies:
+- name: back
+  repository: oci://ghcr.io/saaverdo
+  version: 0.1.0
+- name: front
+  repository: oci://ghcr.io/saaverdo
+  version: 0.1.0
+digest: sha256:cc8c46bee2343e3205824df7efe0bbdae6eddf9bd4e339d153f3ea9b5b6dea2b
+generated: "2025-08-28T22:41:02.898254926Z"

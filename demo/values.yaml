@@ -1,0 +1,8 @@
+common: 
+  ENV_PARAM: &env "umbrella chart value "
+
+back:
+  ENV_PARAM: *env
+
+front:
+  ENV_PARAM: *env

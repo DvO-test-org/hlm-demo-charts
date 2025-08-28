@@ -27,11 +27,6 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "front.serviceAccountName" . }}
-      {{- with .Values.podSecurityContext }}
-      securityContext:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           {{- with .Values.securityContext }}
@@ -45,6 +40,8 @@ spec:
               value: "{{ .Values.back.service.port }}"
             - name: BACK_SERVICE_ADDR
               value: "{{ .Values.back.service.addr }}"
+            - name: ENV_PARAM
+              value: "{{ .Values.ENV_PARAM }}"              
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}

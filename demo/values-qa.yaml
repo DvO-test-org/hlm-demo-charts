@@ -1,0 +1,8 @@
+common: 
+  ENV_PARAM: &env "QA chart value "
+
+back:
+  ENV_PARAM: *env
+
+front:
+  ENV_PARAM: *env

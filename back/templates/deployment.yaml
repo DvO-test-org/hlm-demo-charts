@@ -27,11 +27,6 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "back.serviceAccountName" . }}
-      {{- with .Values.podSecurityContext }}
-      securityContext:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           {{- with .Values.securityContext }}
@@ -51,6 +46,8 @@ spec:
               value: "{{ .Values.db.password }}"
             - name: MYSQL_DATABASE
               value: "{{ .Values.db.database }}"
+            - name: ENV_PARAM
+              value: "{{ .Values.ENV_PARAM }}"
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}
